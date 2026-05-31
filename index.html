@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xiao Lin (林啸)</title>
+  <link rel="icon" type="image/png" href="images/profile/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- AOS: Animate On Scroll -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a2a3a;
+      --accent: #2c5282;
+      --accent-light: #ebf2fa;
+      --text: #2d3748;
+      --text-light: #718096;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --bg-alt: #f7fafc;
+      --highlight: #c53030;
+      --gold: #b7791f;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      background: var(--bg);
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+    }
+
+    nav .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    nav .nav-name {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    nav .nav-name:hover { opacity: 0.7; }
+
+    nav .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      margin-left: 32px;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    nav .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav .nav-links a:hover::after,
+    nav .nav-links a.active::after {
+      width: 100%;
+    }
+
+    nav .nav-links a:hover,
+    nav .nav-links a.active {
+      color: var(--accent);
+    }
+
+    /* Main container */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 60px 0 48px;
+      display: flex;
+      gap: 56px;
+      align-items: flex-start;
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+    }
+
+    .hero-photo img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .hero-photo img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(44, 82, 130, 0.15);
+    }
+
+    .hero-info h1 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-info .subtitle {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .hero-info .subtitle a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero-info .subtitle a:hover {
+      text-decoration: underline;
+    }
+
+    .hero-bio {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .hero-links a i {
+      font-size: 14px;
+    }
+
+    .hero-links a:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(44, 82, 130, 0.25);
+    }
+
+    .job-seeking {
+      display: inline-block;
+      background: linear-gradient(135deg, #fff5f5, #fed7d7);
+      color: var(--highlight);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 6px;
+      border-left: 3px solid var(--highlight);
+      animation: pulse-subtle 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Research Interests */
+    .research-interests {
+      padding: 0 0 12px;
+    }
+
+    .research-interests ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+    }
+
+    .research-interests li {
+      font-size: 15px;
+      color: var(--text);
+      padding: 10px 16px;
+      background: var(--bg-alt);
+      border-radius: 6px;
+      border-left: 3px solid var(--accent);
+      line-height: 1.5;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .research-interests li:hover {
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .research-interests li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 48px 0 0;
+    }
+
+    .section-title {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary);
+      display: inline-block;
+    }
+
+    /* Education & Experience */
+    .timeline {
+      position: relative;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      transition: background 0.2s ease;
+      border-radius: 8px;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-item:hover {
+      background: var(--bg-alt);
+    }
+
+    .timeline-logo {
+      flex-shrink: 0;
+      width: 96px;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #education .timeline-logo {
+      width: 64px;
+      height: 64px;
+    }
+
+    #education .timeline-logo img {
+      max-width: 58px;
+      max-height: 58px;
+    }
+
+    .timeline-logo img {
+      max-width: 90px;
+      max-height: 90px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-logo img {
+      transform: scale(1.08);
+    }
+
+    .timeline-content {
+      flex: 1;
+    }
+
+    .timeline-content h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .timeline-content .timeline-date {
+      font-size: 14px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .timeline-content .timeline-detail {
+      font-size: 14.5px;
+      color: var(--text);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+
+    .timeline-content .timeline-detail strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .timeline-content .timeline-entry + .timeline-entry {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .timeline-content .timeline-detail a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .timeline-content .timeline-detail a:hover {
+      text-decoration: underline;
+    }
+
+    /* News */
+    .news-container {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+
+    .news-container::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .news-container::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    .news-item {
+      display: flex;
+      gap: 20px;
+      padding: 10px 8px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 15px;
+      border-radius: 4px;
+      transition: background 0.2s ease;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-item:hover {
+      background: var(--bg-alt);
+    }
+
+    .news-date {
+      flex-shrink: 0;
+      width: 90px;
+      font-weight: 600;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .news-text {
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .news-text a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .news-text a:hover {
+      color: #1a3a5c;
+      text-decoration: underline;
+    }
+
+    /* Publications */
+    .pub-note {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .pub-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pub-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      padding: 6px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      background: var(--bg);
+      color: var(--text-light);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(44, 82, 130, 0.12);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(44, 82, 130, 0.25);
+    }
+
+    .filter-count {
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    .pub-item {
+      padding: 18px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      border-radius: 6px;
+      transition: background 0.2s ease, transform 0.2s ease, opacity 0.3s ease;
+    }
+
+    .pub-item:last-child {
+      border-bottom: none;
+    }
+
+    .pub-item:hover {
+      background: var(--bg-alt);
+      transform: translateX(3px);
+    }
+
+    .pub-item.hidden {
+      display: none;
+    }
+
+    .pub-section-header {
+      list-style: none;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 13px;
+      padding: 28px 12px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-section-header.hidden {
+      display: none;
+    }
+
+    .pub-insight {
+      margin-top: 6px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--text-light);
+      font-style: italic;
+      padding: 5px 10px;
+      background: linear-gradient(135deg, var(--accent-light), #f0f7ff);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .pub-insight strong {
+      font-style: normal;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .pub-title {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 16px;
+      text-decoration: none;
+      line-height: 1.5;
+      display: inline;
+      transition: color 0.2s;
+    }
+
+    .pub-title:hover {
+      color: var(--accent);
+    }
+
+    .pub-authors {
+      font-size: 14.5px;
+      color: var(--text-light);
+      margin: 4px 0;
+      line-height: 1.6;
+    }
+
+    .pub-authors .me {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 2px;
+    }
+
+    .pub-venue {
+      font-size: 14.5px;
+      color: var(--text);
+      margin: 4px 0 8px;
+    }
+
+    .pub-venue em {
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .pub-venue .oral {
+      color: var(--highlight);
+      font-weight: 700;
+    }
+
+    .pub-venue .best-paper {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .pub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      border-radius: 14px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pub-link:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(44, 82, 130, 0.2);
+    }
+
+    .pub-tags {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 10px;
+      letter-spacing: 0.2px;
+      transition: transform 0.15s ease;
+    }
+
+    .tag:hover {
+      transform: scale(1.05);
+    }
+
+    .tag-agent { background: #e8f4fd; color: #1a5276; }
+    .tag-survey { background: #fde8e8; color: #922b21; }
+    .tag-llm { background: #fef9e7; color: #7d6608; }
+    .tag-personalization { background: #e8f8f5; color: #1e8449; }
+    .tag-multimodal { background: #f0e6ff; color: #6c3483; }
+    .tag-robustness { background: #ffeaa7; color: #856404; }
+    .tag-efficiency { background: #e8e8e8; color: #555; }
+    .tag-retrieval { background: #d5f5e3; color: #1e8449; }
+    .tag-safety { background: #fadbd8; color: #922b21; }
+    .tag-fairness { background: #f5eef8; color: #6c3483; }
+    .tag-application { background: #d6eaf8; color: #1a5276; }
+    .tag-test-time { background: #d1f2eb; color: #117864; }
+    .tag-multi-agent { background: #fdebd0; color: #935116; }
+    .tag-diffusion { background: #f9ebea; color: #78281f; }
+    .tag-bias { background: #f2f3f4; color: #566573; }
+    .tag-transferability { background: #fef5e7; color: #935116; }
+
+    /* Awards */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .award-item {
+      padding: 14px 18px;
+      background: var(--bg-alt);
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .award-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .service-text {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+      margin-top: 16px;
+    }
+
+    .service-text strong {
+      color: var(--primary);
+    }
+
+    /* Photo Gallery */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+      padding: 20px 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.04);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--border);
+      color: #aaa;
+      font-size: 2rem;
+    }
+
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .lightbox-close:hover { opacity: 1; }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      padding: 16px;
+      user-select: none;
+    }
+
+    .lightbox-nav:hover { opacity: 1; }
+    .lightbox-prev { left: 12px; }
+    .lightbox-next { right: 12px; }
+
+    .lightbox-counter {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      margin-top: 12px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 48px 0 32px;
+      color: var(--text-light);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      border: none;
+      box-shadow: 0 4px 12px rgba(44, 82, 130, 0.3);
+      z-index: 99;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(44, 82, 130, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      .hero { flex-direction: column; gap: 24px; align-items: center; text-align: center; }
+      .hero-info h1 { font-size: 32px; }
+      .hero-links { justify-content: center; }
+      .research-interests ul { grid-template-columns: 1fr; }
+      .awards-grid { grid-template-columns: 1fr; }
+      nav .nav-links a { margin-left: 14px; font-size: 13px; }
+      .pub-filter { gap: 6px; }
+      .filter-btn { padding: 5px 12px; font-size: 13px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Xiao Lin</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero" id="about">
+    <div class="hero-photo" data-aos="fade-right" data-aos-duration="800">
+      <img src="images/profile/xiaolin.jpg" alt="Xiao Lin (林啸)">
+    </div>
+    <div class="hero-info" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+      <h1>Xiao Lin <span style="font-size:28px; font-weight:500; color:var(--text-light); margin-left:8px;">(林啸)</span></h1>
+      <div class="subtitle">
+        Ph.D. Student &middot; <a href="https://cs.illinois.edu/">University of Illinois Urbana-Champaign</a><br>
+        Advised by <a href="http://tonghanghang.org/">Prof. Hanghang Tong</a> at <a href="https://www.idea-isail.com/">IDEA-ISAIL Lab</a><br>
+        Previous B.E. from <a href="https://english.pku.edu.cn/">Peking University</a>.
+      </div>
+      <p class="hero-bio">
+        I am deeply engaged in advancing <strong>controllable and reliable AI systems under dynamic environments</strong>. Recently, I investigate how to harness <strong>agentic reasoning</strong> through the integration of memory, agentic reinforcement learning, and multi-agent systems.
+      </p>
+      <div class="hero-links">
+        <a href="files/Resume_Xiao.pdf"><i class="fas fa-file-alt"></i> CV</a>
+        <a href="mailto:xiaol13@illinois.edu"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://scholar.google.com/"><i class="fas fa-graduation-cap"></i> Scholar</a>
+        <a href="https://github.com/"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+      </div>
+      <div class="job-seeking">
+        Actively seeking full-time and internship opportunities.
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Interests -->
+  <div class="research-interests" data-aos="fade-up" data-aos-duration="600">
+    <ul>
+      <li><strong>LLM Agents</strong>: agentic reasoning, memory, agentic reinforcement learning, multi-agent systems</li>
+      <li><strong>Sequential Modeling</strong>: long-sequence modeling, time series analysis</li>
+      <li><strong>Graph Machine Learning</strong>: graph representation learning under dynamic environments</li>
+      <li><strong>Large Language Models</strong>: controllable and reliable adaptation</li>
+    </ul>
+  </div>
+
+  <!-- Education -->
+  <section id="education" data-aos="fade-up" data-aos-duration="600">
+    <h2 class="section-title">Education</h2>
+
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="timeline-logo"><img src="images/logos/uiuc.png" alt="UIUC"></div>
+        <div class="timeline-content">
+          <h3>University of Illinois Urbana-Champaign</h3>
+          <div class="timeline-entry">
+            <div class="timeline-date">Ph.D. in Computer Science &middot; Aug. 2023 ~ May 2028 (expected)</div>
+            <div class="timeline-detail"><strong>Department of Computer Science</strong> &middot; Advisor: <a href="http://tonghanghang.org/">Prof. Hanghang Tong</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-logo"><img src="images/logos/pku.png" alt="Peking University"></div>
+        <div class="timeline-content">
+          <h3>Peking University</h3>
+          <div class="timeline-entry">
+            <div class="timeline-date">B.E. in Computer Science &middot; Sep. 2019 ~ Jun. 2023</div>
+            <div class="timeline-detail"><strong>School of Intelligence Science and Technology</strong> &middot; Advisor: <a href="https://yisenwang.github.io/">Prof. Yisen Wang</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" data-aos="fade-up" data-aos-duration="600">
+    <h2 class="section-title">Work Experience</h2>
+
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="0">
+        <div class="timeline-logo"><img src="images/DeepMind_new_logo.svg.png" alt="Google DeepMind" style="max-width:110px; max-height:110px;"></div>
+        <div class="timeline-content">
+          <h3>Google DeepMind GenAI</h3>
+          <div class="timeline-date">May ~ Oct 2025 &middot; Mountain View, CA & Urbana, IL</div>
+          <div class="timeline-detail">Research Intern &middot; LLM Agent Memory and Personalization</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="timeline-logo"><img src="images/Meta-Logo.png" alt="Meta"></div>
+        <div class="timeline-content">
+          <h3>Meta Ranking AI</h3>
+          <div class="timeline-date">Jan ~ May 2025 &middot; Remote</div>
+          <div class="timeline-detail">Research Intern &middot; Generative Recommender Systems with LLMs</div>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="timeline-logo"><img src="images/amazon.png" alt="Amazon"></div>
+        <div class="timeline-content">
+          <h3>Amazon</h3>
+          <div class="timeline-date">2023 ~ 2026 &middot; Palo Alto, CA & Urbana, IL</div>
+          <div class="timeline-detail">
+            <strong>Amazon Search</strong> &middot; May ~ Dec 2023<br>
+            Multi-modal LLMs for Personalization &rarr; ICLR 2024, WWW 2024, ICML 2024, KDD 2025<br><br>
+            <strong>Amazon Shopping FM</strong> &middot; May ~ Oct 2024<br>
+            Multi-modal Watermarking for Generative Models &rarr; TMLR<br><br>
+            <strong>Amazon Ads FM</strong> &middot; Feb ~ May 2026<br>
+            LLM Agent Continual Learning and Self-improving
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section id="news" data-aos="fade-up" data-aos-duration="600">
+    <h2 class="section-title">News</h2>
+    <div class="news-container">
+      <div class="news-item">
+        <div class="news-date">Apr 2026</div>
+        <div class="news-text">Four papers about Agentic Reasoning, Memory and Safety accepted by <strong>ACL 2026</strong>.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Feb 2026</div>
+        <div class="news-text"><a href="TBD">MC-Search</a> selected for <strong style="color:#c53030;">Oral presentation (Top 1%)</strong> at ICLR 2026.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jan 2026</div>
+        <div class="news-text">Two papers about Agentic AI and VLM accepted by <strong>ICLR 2026</strong>.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jan 2026</div>
+        <div class="news-text"><a href="https://arxiv.org/pdf/2601.12538">Survey on Agentic AI and Reasoning</a> ranked <strong>#1 on Hugging Face Daily Papers</strong>.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jan 2026</div>
+        <div class="news-text"><a href="https://arxiv.org/abs/2511.20857">Evo-Memory</a> featured in <a href="https://www.mittrchina.com/news/detail/15795">MIT Technology Review</a>.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jan 2026</div>
+        <div class="news-text">Two papers accepted @ TMLR.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jan 2026</div>
+        <div class="news-text">One paper accepted @ EACL.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Dec 2025</div>
+        <div class="news-text">One paper accepted @ npj Artificial Intelligence.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Nov 2025</div>
+        <div class="news-text">One paper accepted @ AAAI 2026.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Aug 2025</div>
+        <div class="news-text">One research and two workshop papers accepted @ NeurIPS 2025.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Aug 2025</div>
+        <div class="news-text">One paper accepted @ EMNLP 2025.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Aug 2025</div>
+        <div class="news-text">One paper accepted @ CIKM 2025.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jun 2025</div>
+        <div class="news-text">One paper accepted @ ICCV 2025.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">May 2025</div>
+        <div class="news-text">One paper accepted @ ACL 2025. Two papers accepted @ ICML 2025. One paper accepted @ UAI 2025.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Apr 2025</div>
+        <div class="news-text">Joined Google DeepMind as a research intern.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Dec 2024</div>
+        <div class="news-text">Recognized as <strong>Outstanding Reviewer</strong> @ KDD 2025.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Nov 2024</div>
+        <div class="news-text">Two (co-)first-author papers accepted @ KDD 2025.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">May 2024</div>
+        <div class="news-text">One paper accepted @ KDD 2024. Two papers accepted @ ICML 2024.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jan 2024</div>
+        <div class="news-text"><a href="https://arxiv.org/abs/2311.09134">RIPOR</a> accepted @ WWW 2024. <a href="https://openreview.net/forum?id=khAE1sTMdX">UniMP</a> accepted @ ICLR 2024.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Dec 2023</div>
+        <div class="news-text">One paper accepted @ AAAI 2024.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Sep 2023</div>
+        <div class="news-text">Two papers accepted @ NeurIPS 2023. NeurIPS 2023 Scholar Award.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Apr 2023</div>
+        <div class="news-text"><a href="https://weitianxin.github.io/files/mlp fusion.pdf">MLP Fusion</a> accepted @ ICML 2023. ICML 2023 Grant Award.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Oct 2022</div>
+        <div class="news-text"><a href="https://arxiv.org/abs/2210.03801">HyperGCL</a> accepted @ NeurIPS 2022. NeurIPS 2022 Scholar Award.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">May 2022</div>
+        <div class="news-text"><a href="https://arxiv.org/abs/2206.04789">CLOVER</a> accepted @ KDD 2022.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jul 2021</div>
+        <div class="news-text"><strong style="color:#b7791f;">SIGIR 2021 Best Paper Honorable Mention.</strong></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">May 2021</div>
+        <div class="news-text"><a href="https://arxiv.org/abs/2010.15363">MACR</a> accepted @ KDD 2021.</div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Apr 2021</div>
+        <div class="news-text"><a href="https://arxiv.org/abs/2105.06067">PDA</a> accepted @ SIGIR 2021.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications" data-aos="fade-up" data-aos-duration="600">
+    <h2 class="section-title">Publications</h2>
+    <p class="pub-note">* equal contribution &nbsp; ^ mentorship</p>
+
+    <div class="pub-filter" id="pubFilter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="agent">Agent</button>
+      <button class="filter-btn" data-filter="llm">LLM</button>
+      <button class="filter-btn" data-filter="personalization">Personalization</button>
+      <button class="filter-btn" data-filter="multimodal">Multimodal</button>
+      <button class="filter-btn" data-filter="robustness">Robustness</button>
+      <button class="filter-btn" data-filter="efficiency">Efficiency</button>
+      <button class="filter-btn" data-filter="retrieval">Retrieval</button>
+      <button class="filter-btn" data-filter="survey">Survey</button>
+      <button class="filter-btn" data-filter="test-time">Test-time</button>
+      <button class="filter-btn" data-filter="bias">Bias</button>
+      <button class="filter-btn" data-filter="safety">Safety</button>
+      <button class="filter-btn" data-filter="diffusion">Diffusion</button>
+      <button class="filter-btn" data-filter="fairness">Fairness</button>
+      <button class="filter-btn" data-filter="multi-agent">Multi-Agent</button>
+      <button class="filter-btn" data-filter="application">Application</button>
+      <button class="filter-btn" data-filter="transferability">Transferability</button>
+    </div>
+
+    <ul class="pub-list" id="pubList">
+
+      <li class="pub-section-header">Preprint</li>
+
+      <li class="pub-item" data-tags="agent survey">
+        <a href="https://arxiv.org/abs/2601.12538" class="pub-title">Agentic Reasoning for Large Language Models: A Survey</a>
+        <div class="pub-venue"><em>Survey 2026</em></div>
+        <div class="pub-authors"><span class="me">Tianxin Wei</span>, Ting-Wei Li, Zhining Liu, Xuying Ning, Ze Yang, Jiaru Zou, Zhichen Zeng, Ruizhong Qiu, Xiao Lin, Dongqi Fu, Zihao Li, Mengting Ai, Duo Zhou, Wenxuan Bao, Yunzhe Li, Gaotang Li, Cheng Qian, Yu Wang, Xiangru Tang, Yin Xiao, Liri Fang, Hui Liu, Xianfeng Tang, Yuji Zhang, Chi Wang, Jiaxuan You, Heng Ji, Hanghang Tong, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Unified taxonomy of how LLM agents plan, use tools, and reflect to reason.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2601.12538" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/weitianxin/Awesome-Agentic-Reasoning" class="pub-link"><i class="fas fa-project-diagram"></i> Project</a>
+          <a href="https://huggingface.co/papers/2601.12538" class="pub-link"><i class="fas fa-face-smile"></i> Huggingface</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-agent">Agent</span><span class="tag tag-survey">Survey</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="agent personalization">
+        <a href="https://arxiv.org/abs/2511.20857" class="pub-title">Evo-Memory: Benchmarking LLM Agent Test-time Learning with Self-Evolving Memory</a>
+        <div class="pub-venue"><em>arXiv 2025</em></div>
+        <div class="pub-authors"><span class="me">Tianxin Wei</span>, Noveen Sachdeva, Benjamin Coleman, Zhankui He, Yuarchen Bei, Xuying Ning, Mengting Ai, Yunzhe Li, Jingrui He, Ed H. Chi, Chi Wang, Shuo Chen, Fernando Pereira, Wang-Cheng Kang, Derek Zhiyuan Cheng</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> LLM agents that autonomously build and refine memory from experience at test time.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2511.20857" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-agent">Agent</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm personalization">
+        <a href="https://www.arxiv.org/abs/2511.22707" class="pub-title">CoFiRec: Coarse-to-Fine Tokenization for Generative Recommendation</a>
+        <div class="pub-venue"><em>arXiv 2025</em></div>
+        <div class="pub-authors"><span class="me">Tianxin Wei*</span>, Xuying Ning*, Xuxing Chen, Ruizhong Qiu, Yupeng Hou, Yan Xie, Shuang Yang, Zhigang Hua, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Hierarchical tokenization bridging semantics and collaboration for generative recommendation.</div>
+        <div class="pub-links">
+          <a href="https://www.arxiv.org/abs/2511.22707" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="agent survey personalization">
+        <a href="https://arxiv.org/pdf/2602.06052" class="pub-title">Rethinking Memory Mechanisms of Foundation Agents in the Second Half: A Survey</a>
+        <div class="pub-venue"><em>arXiv 2026</em></div>
+        <div class="pub-authors">Joint work across 27 institutions.</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Comprehensive categorization of agent memory mechanisms and key design gaps.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/pdf/2602.06052" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/AgentMemoryWorld/Awesome-Agent-Memory" class="pub-link"><i class="fas fa-project-diagram"></i> Project</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-agent">Agent</span><span class="tag tag-survey">Survey</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-section-header">Conference</li>
+
+      <li class="pub-item" data-tags="llm efficiency multi-agent">
+        <a href="https://arxiv.org/abs/2601.06022" class="pub-title">AdaFuse: Adaptive Ensemble Decoding with Test-Time Scaling for LLMs</a>
+        <div class="pub-venue"><em>ACL 2026 Main</em></div>
+        <div class="pub-authors">Chengming Cui*, <span class="me">Tianxin Wei*^</span>, Ziyi Chen, Ruizhong Qiu, Zhichen Zeng, Zhining Liu, Xuying Ning, Duo Zhou, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Fuse multiple LLM outputs adaptively at decode time via test-time scaling.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2601.06022" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-efficiency">Efficiency</span><span class="tag tag-multi-agent">Multi-Agent</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="agent multimodal">
+        <a href="TBD" class="pub-title">PaperMind: Benchmarking Agentic Reasoning and Critique over Scientific Papers in Multimodal LLMs</a>
+        <div class="pub-venue"><em>ACL 2026 Findings</em></div>
+        <div class="pub-authors">Yanjun Zhao*, <span class="me">Tianxin Wei*^</span>, Jiaru Zou, Xuying Ning, Yuanchen Bei, Lingjie Chen, Simmi Rana, Wendy H. Yang, Hanghang Tong, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Benchmark for evaluating multimodal LLM reasoning and critique over scientific papers.</div>
+        <div class="pub-links">
+          <a href="TBD" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-agent">Agent</span><span class="tag tag-multimodal">Multimodal</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="agent multimodal personalization">
+        <a href="https://arxiv.org/abs/2601.03515" class="pub-title">Mem-Gallery: Benchmarking Multimodal Long-Term Conversational Memory for MLLM Agents</a>
+        <div class="pub-venue"><em>ACL 2026 Main</em></div>
+        <div class="pub-authors">Yuanchen Bei, <span class="me">Tianxin Wei^</span>, Xuying Ning, Yanjun Zhao, Zhining Liu, Xiao Lin, Yada Zhu, Hendrik Hamann, Jingrui He, Hanghang Tong</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Benchmark exposing MLLM agents' failure in long-term multimodal conversational memory.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2601.03515" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/YuanchenBei/Mem-Gallery" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-agent">Agent</span><span class="tag tag-multimodal">Multimodal</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="agent multimodal robustness">
+        <a href="https://arxiv.org/abs/2603.00873" class="pub-title">MC-Search: Evaluating and Enhancing Multimodal Agentic Search with Structured Long Reasoning Chains</a>
+        <div class="pub-venue"><em>ICLR 2026</em> <span class="oral">Oral (Top 1%)</span>. Prelim version at NeurIPS 2025 Workshop.</div>
+        <div class="pub-authors">Xuying Ning*, Dongqi Fu*, <span class="me">Tianxin Wei*</span>, Mengting Ai, Jiaru Zou, Ting-Wei Li, Hanghang Tong, Yada Zhu, Hendrik Hamann, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Structured long reasoning chains for multimodal agentic search.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2603.00873" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-agent">Agent</span><span class="tag tag-multimodal">Multimodal</span><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="multimodal robustness">
+        <a href="https://arxiv.org/abs/2510.17771" class="pub-title">Seeing but Not Believing: Probing the Disconnect Between Visual Attention and Answer Correctness in VLMs</a>
+        <div class="pub-venue"><em>ICLR 2026</em></div>
+        <div class="pub-authors">Zhining Liu, Ziyi Chen, Hui Liu, Chen Luo, Xianfeng Tang, Suhang Wang, Joy Zeng, Zhenwei Dai, Zhan Shi, <span class="me">Tianxin Wei</span>, Benoit Dumoulin, Hanghang Tong</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Correct visual attention does not guarantee correct VLM reasoning.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2510.17771" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-multimodal">Multimodal</span><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm multi-agent">
+        <a href="https://arxiv.org/abs/2510.13855" class="pub-title">Harnessing Consistency for Robust Test-Time LLM Ensemble</a>
+        <div class="pub-venue"><em>EACL 2026 Findings</em></div>
+        <div class="pub-authors">Zhichen Zeng, Qi Yu, Xiao Lin, Ruizhong Qiu, Xuying Ning, <span class="me">Tianxin Wei</span>, Yuchen Yan, Jingrui He, Hanghang Tong</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Consistency-driven test-time LLM ensemble for robust multi-model agreement.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2510.13855" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/zhichenz98/CoRE-EACL26" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-multi-agent">Multi-Agent</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="multimodal test-time personalization robustness">
+        <a href="https://arxiv.org/abs/2511.10481" class="pub-title">Panda: Test-Time Adaptation with Negative Data Augmentation</a>
+        <div class="pub-venue"><em>AAAI 2026</em></div>
+        <div class="pub-authors">Ruxi Deng, Wenxuan Bao, <span class="me">Tianxin Wei</span>, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Negative data augmentation at test time for robust domain adaptation.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2511.10481" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/ruxideng/Panda" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-multimodal">Multimodal</span><span class="tag tag-test-time">Test-time</span><span class="tag tag-personalization">Personalization</span><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="robustness">
+        <a href="https://arxiv.org/abs/2505.17451" class="pub-title">CLIMB: Class-imbalanced Learning Benchmark on Tabular Data</a>
+        <div class="pub-venue"><em>NeurIPS 2025</em></div>
+        <div class="pub-authors">Zhining Liu, Zihao Li, Ze Yang, <span class="me">Tianxin Wei</span>, Jian Kang, Yada Zhu, Hendrik Hamann, Jingrui He, Hanghang Tong</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Unified benchmark for class-imbalanced tabular learning.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2505.17451" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/ZhiningLiu1998/imbalanced-ensemble" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="multimodal test-time personalization robustness">
+        <a href="https://arxiv.org/abs/2507.21494" class="pub-title">Latte: Collaborative Test-Time Adaptation of Vision-Language Models in Federated Learning</a>
+        <div class="pub-venue"><em>ICCV 2025</em></div>
+        <div class="pub-authors">Wenxuan Bao, Ruxi Deng, Ruizhong Qiu, <span class="me">Tianxin Wei</span>, Hanghang Tong, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Collaborative test-time VLM adaptation across federated clients without sharing data.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2507.21494" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/baowenxuan/Latte" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-multimodal">Multimodal</span><span class="tag tag-test-time">Test-time</span><span class="tag tag-personalization">Personalization</span><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm">
+        <a href="https://aclanthology.org/2025.findings-emnlp.407" class="pub-title">Learning to Instruct: Fine-Tuning a Task-Aware Instruction Optimizer for Black-Box LLMs</a>
+        <div class="pub-venue"><em>EMNLP 2025 Findings</em></div>
+        <div class="pub-authors">Yunzhe Qi, Jinjin Tian, Tianci Liu, Ruirui Li, <span class="me">Tianxin Wei</span>, Hui Liu, Xianfeng Tang, Monica Xiao Cheng, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Auto-rewrite prompts for black-box LLMs via a learned instruction optimizer.</div>
+        <div class="pub-links">
+          <a href="https://aclanthology.org/2025.findings-emnlp.407" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm retrieval">
+        <a href="https://arxiv.org/abs/2502.08767" class="pub-title">SelfElicit: Your Language Model Secretly Knows Where is the Relevant Evidence</a>
+        <div class="pub-venue"><em>ACL 2025 Main</em></div>
+        <div class="pub-authors">Zhining Liu, Rana Ali Amjad, Ravinarayana Adkathimar, <span class="me">Tianxin Wei</span>, Hanghang Tong</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> LLMs implicitly know where evidence is; self-eliciting beats external retrievers.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2502.08767" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-retrieval">Retrieval</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="personalization robustness">
+        <a href="https://arxiv.org/abs/2405.20710" class="pub-title">i&sup2;VAE: Interest Information Augmentation with Variational Regularizers for Cross-Domain Sequential Recommendation</a>
+        <div class="pub-venue"><em>UAI 2025</em></div>
+        <div class="pub-authors">Xuying Ning, Wujiang Xu, <span class="me">Tianxin Wei</span>, Xiaolei Liu</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Variational interest augmentation for cross-domain sequential recommendation.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2405.20710" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-personalization">Personalization</span><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm multimodal">
+        <a href="https://openreview.net/forum?id=FB2e8PV6qg" class="pub-title">Graph4MM: Weaving Multimodal Learning with Structural Information</a>
+        <div class="pub-venue"><em>ICML 2025</em></div>
+        <div class="pub-authors">Xuying Ning, Dongqi Fu, <span class="me">Tianxin Wei</span>, Wujiang Xu, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Graph structure as inductive bias for richer multimodal representations.</div>
+        <div class="pub-links">
+          <a href="https://openreview.net/forum?id=FB2e8PV6qg" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-multimodal">Multimodal</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="application efficiency">
+        <a href="https://arxiv.org/abs/2505.18442" class="pub-title">Breaking Silos: Adaptive Model Fusion Unlocks Better Time Series Forecasting</a>
+        <div class="pub-venue"><em>ICML 2025</em></div>
+        <div class="pub-authors">Zhining Liu, Ze Yang, Xiao Lin, Ruizhong Qiu, <span class="me">Tianxin Wei</span>, Yada Zhu, Hendrik Hamann, Jingrui He, Hanghang Tong</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Adaptive fusion of heterogeneous time series forecasters breaks model silos.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2505.18442" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-application">Application</span><span class="tag tag-efficiency">Efficiency</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="robustness">
+        <a href="TBD" class="pub-title">Connecting Domains and Contrasting Samples: A Ladder for Domain Generalization</a>
+        <div class="pub-venue"><em>KDD 2025</em> (Full Research, AR: 19%)</div>
+        <div class="pub-authors"><span class="me">Tianxin Wei*</span>, Yifan Chen*, Wenxuan Bao, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Progressive domain connection via contrastive alignment for domain generalization.</div>
+        <div class="pub-links">
+          <a href="TBD" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm efficiency">
+        <a href="https://arxiv.org/abs/2307.08941" class="pub-title">MLP Fusion: Towards Efficient Fine-tuning of Dense and Mixture-of-Experts Language Models</a>
+        <div class="pub-venue"><em>v1 accepted to ICML 2023. Submitted to IEEE for possible publication.</em></div>
+        <div class="pub-authors">Mengting Ai*, <span class="me">Tianxin Wei*</span>, Yifan Chen*, Zeming Guo, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Lightweight MLP fusion for parameter-efficient fine-tuning of dense and MoE LLMs.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2307.08941" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-efficiency">Efficiency</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm efficiency">
+        <a href="TBD" class="pub-title">ResMoE: Space-efficient Compression of Mixture of Experts LLMs via Residual Restoration</a>
+        <div class="pub-venue"><em>KDD 2025</em> (Full Research, AR: 19%)</div>
+        <div class="pub-authors">Mengting Ai*, <span class="me">Tianxin Wei*^</span>, Yifan Chen*, Zhichen Zeng, Ritchie Zhao, Girish Varatkar, Bita Darvish Rouhani, Xianfeng Tang, Hanghang Tong, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Residual restoration compresses MoE LLMs while preserving expert specialization.</div>
+        <div class="pub-links">
+          <a href="TBD" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-efficiency">Efficiency</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="efficiency">
+        <a href="https://arxiv.org/abs/2201.13395" class="pub-title">Meta Clustering of Neural Bandits</a>
+        <div class="pub-venue"><em>KDD 2024</em> (Full Research, AR: 20%)</div>
+        <div class="pub-authors">Yikun Ban, Yunzhe Qi, <span class="me">Tianxin Wei</span>, Lihui Liu, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Meta-learning discovers bandit arm clusters for efficient shared exploration.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2201.13395" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-efficiency">Efficiency</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="robustness">
+        <a href="TBD" class="pub-title">Graph Mixup on Approximate Gromov-Wasserstein Geodesics</a>
+        <div class="pub-venue"><em>ICML 2024</em> (Full Research, AR: 27.5%)</div>
+        <div class="pub-authors">Zhichen Zeng, Ruizhong Qiu, Zhe Xu, Zhining Liu, Yuchen Yan, <span class="me">Tianxin Wei</span>, Lei Ying, Jingrui He, Hanghang Tong</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Graph mixup along Gromov-Wasserstein geodesics for topology-aware augmentation.</div>
+        <div class="pub-links">
+          <a href="TBD" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm retrieval">
+        <a href="https://arxiv.org/pdf/2310.07815v1.pdf" class="pub-title">Language Models as Semantic Indexers</a>
+        <div class="pub-venue"><em>ICML 2024</em> (Full Research, AR: 27.5%)</div>
+        <div class="pub-authors">Bowen Jin, Hansi Zeng, Guoyin Wang, Xiusi Chen, <span class="me">Tianxin Wei</span>, Ruirui Li, Zhengyang Wang, Zheng Li, Yang Li, Hanqing Lu, Suhang Wang, Jiawei Han, Xianfeng Tang</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Language models as end-to-end semantic indexers replacing traditional retrieval.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/pdf/2310.07815v1.pdf" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/petergriffinjin/lmindexer" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-retrieval">Retrieval</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm multimodal personalization">
+        <a href="https://openreview.net/pdf?id=khAE1sTMdX" class="pub-title">Towards Unified Multi-Modal Personalization: Large Vision-Language Models for Generative Recommendation and Beyond</a>
+        <div class="pub-venue"><em>ICLR 2024</em> (Full Research, AR: 31%)</div>
+        <div class="pub-authors"><span class="me">Tianxin Wei</span>, Bowen Jin, Ruirui Li, Hansi Zeng, Zhengyang Wang, Jianhui Sun, Qingyu Yin, Hanqing Lu, Suhang Wang, Jingrui He, Xianfeng Tang</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> One vision-language model for unified multi-modal generative recommendation.</div>
+        <div class="pub-links">
+          <a href="https://openreview.net/pdf?id=khAE1sTMdX" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/weitianxin/UniMP" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-multimodal">Multimodal</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm retrieval">
+        <a href="https://arxiv.org/pdf/2311.09134.pdf" class="pub-title">Scalable and Effective Generative Information Retrieval</a>
+        <div class="pub-venue"><em>WWW 2024</em> <span class="oral">(Oral)</span> (Full Research, AR: 20.2%)</div>
+        <div class="pub-authors">Hansi Zeng, Chen Luo, Bowen Jin, Sheikh Muhammad Sarwar, <span class="me">Tianxin Wei</span>, Hamed Zamani</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Scalable generative retrieval via residual-quantized prefix language modeling.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/pdf/2311.09134.pdf" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/hansizeng/ripor" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-retrieval">Retrieval</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="robustness personalization">
+        <a href="TBD" class="pub-title">TAU: Trajectory Data Augmentation with Uncertainty for Next POI Recommendation</a>
+        <div class="pub-venue"><em>AAAI 2024</em> (Full Research, AR: 24%)</div>
+        <div class="pub-authors">Zhuang Zhuang, <span class="me">Tianxin Wei^</span>, Lingbo Liu, Heng Qi, Yanming Shen, Baocai Yin</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Uncertainty-aware trajectory augmentation for next POI recommendation.</div>
+        <div class="pub-links">
+          <a href="TBD" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-robustness">Robustness</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="efficiency">
+        <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/c9e6ac15e689e06139d7b39e1667b165-Abstract-Conference.html" class="pub-title">Meta-Learning with Neural Bandit Scheduler</a>
+        <div class="pub-venue"><em>NeurIPS 2023</em> (Full Research, AR: 26.1%)</div>
+        <div class="pub-authors">Yunzhe Qi, Yikun Ban, <span class="me">Tianxin Wei</span>, Jiaru Zou, Huaxiu Yao, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Neural bandit scheduling for adaptive task allocation in meta-learning.</div>
+        <div class="pub-links">
+          <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/c9e6ac15e689e06139d7b39e1667b165-Abstract-Conference.html" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/yunzhe0306/bandit_task_scheduler" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-efficiency">Efficiency</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="robustness test-time personalization">
+        <a href="https://arxiv.org/abs/2310.18816" class="pub-title">Adaptive Test-Time Personalization for Federated Learning</a>
+        <div class="pub-venue"><em>NeurIPS 2023</em> (Full Research, AR: 26.1%)</div>
+        <div class="pub-authors">Wenxuan Bao*, <span class="me">Tianxin Wei*</span>, Haohan Wang, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Test-time personalization bridging global federated models to local distributions.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2310.18816" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/baowenxuan/ATP" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-robustness">Robustness</span><span class="tag tag-test-time">Test-time</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="llm efficiency">
+        <a href="https://arxiv.org/abs/2307.08941v2" class="pub-title">NTK-approximating MLP Fusion for Efficient Language Model Fine-tuning</a>
+        <div class="pub-venue"><em>ICML 2023</em> (Full Research, AR: 27.9%)</div>
+        <div class="pub-authors"><span class="me">Tianxin Wei*^</span>, Zeming Guo*, Yifan Chen*, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> NTK-principled MLP fusion for theoretically grounded efficient LLM fine-tuning.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2307.08941v2" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/weitianxin/mlp_fusion" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-llm">LLM</span><span class="tag tag-efficiency">Efficiency</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="robustness">
+        <a href="https://arxiv.org/abs/2210.03801" class="pub-title">Augmentations in Hypergraph Contrastive Learning: Fabricated and Generative</a>
+        <div class="pub-venue"><em>NeurIPS 2022</em> (Full Research, AR: 25.6%)</div>
+        <div class="pub-authors"><span class="me">Tianxin Wei*</span>, Yuning You*, Tianlong Chen, Yang Shen, Jingrui He, Zhangyang Wang</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Fabricated and generative augmentations for hypergraph contrastive learning.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2210.03801" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/weitianxin/HyperGCL" class="pub-link"><i class="fab fa-github"></i> Code</a>
+          <a href="https://weitianxin.github.io/files/neurips22_hypergcl_appendix.pdf" class="pub-link"><i class="fas fa-paperclip"></i> Appendix</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="fairness personalization">
+        <a href="https://arxiv.org/abs/2206.04789" class="pub-title">Comprehensive Fair Meta-learned Recommender System</a>
+        <div class="pub-venue"><em>KDD 2022</em> (Full Research, AR: 15.0%)</div>
+        <div class="pub-authors"><span class="me">Tianxin Wei</span>, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Meta-learned recommendation with built-in fairness across user demographics.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2206.04789" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/weitianxin/MACR" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-fairness">Fairness</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="bias personalization">
+        <a href="https://arxiv.org/abs/2010.15363" class="pub-title">Model-Agnostic Counterfactual Reasoning for Eliminating Popularity Bias in Recommender System</a>
+        <div class="pub-venue"><em>KDD 2021</em> (Full Research, AR: 15.4%)</div>
+        <div class="pub-authors"><span class="me">Tianxin Wei</span>, Fuli Feng, Jiawei Chen, Ziwei Wu, Jinfeng Yi, Xiangnan He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Counterfactual reasoning removes popularity bias from any recommender.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2010.15363" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/weitianxin/MACR" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-bias">Bias</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="bias personalization">
+        <a href="https://arxiv.org/abs/2105.06067" class="pub-title">Causal Intervention for Leveraging Popularity Bias in Recommendation</a>
+        <div class="pub-venue"><em>SIGIR 2021</em> <span class="best-paper">Best Paper Honorable Mention (1 out of All)</span> (Full Research, AR: 21%)</div>
+        <div class="pub-authors">Yang Zhang, Fuli Feng, Xiangnan He, <span class="me">Tianxin Wei</span>, Chonggang Song, Guohui Ling, Yongdong Zhang</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Causal intervention that leverages popularity signals while suppressing recommendation bias.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2105.06067" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/zyang1580/PDA" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-bias">Bias</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="transferability personalization">
+        <a href="https://weitianxin.github.io/files/ICDM_2020_MetaCF.pdf" class="pub-title">Fast Adaptation for Cold-start Collaborative Filtering with Meta-learning</a>
+        <div class="pub-venue"><em>ICDM 2020</em> (Full Research, AR: 9.8%)</div>
+        <div class="pub-authors"><span class="me">Tianxin Wei</span>, Ziwei Wu, Ruirui Li, Ziniu Hu, Fuli Feng, Xiangnan He, Yizhou Sun, Wei Wang</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Meta-learning for rapid cold-start adaptation from few user interactions.</div>
+        <div class="pub-links">
+          <a href="https://weitianxin.github.io/files/ICDM_2020_MetaCF.pdf" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://drive.google.com/file/d/1_UaPcCQLaEEWUCsMTRIgsvtWqorqsnUm/view?usp=sharing" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-transferability">Transferability</span><span class="tag tag-personalization">Personalization</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="multimodal">
+        <a href="https://www.springerprofessional.de/en/unpaired-multimodal-neural-machine-translation-via-reinforcement/19040758" class="pub-title">Unpaired Multimodal Neural Machine Translation via Reinforcement Learning</a>
+        <div class="pub-venue"><em>DASFAA 2021</em> (Full Research, AR: 20%)</div>
+        <div class="pub-authors">Yijun Wang*, <span class="me">Tianxin Wei*</span>, Qi Liu, Enhong Chen</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> RL-based alignment of unpaired images and text for multimodal translation.</div>
+        <div class="pub-links">
+          <a href="https://www.springerprofessional.de/en/unpaired-multimodal-neural-machine-translation-via-reinforcement/19040758" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-multimodal">Multimodal</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="application">
+        <a href="https://weitianxin.github.io/files/AAAI21_ARStock.pdf" class="pub-title">AR-Stock: Deep Augmented Relational Stock Prediction</a>
+        <div class="pub-venue"><em>AAAI 2021 Workshop on Knowledge Discovery from Unstructured Data</em> (Oral)</div>
+        <div class="pub-authors"><span class="me">Tianxin Wei</span>, Yuning You, Tianlong Chen</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Augmented relational graph learning capturing inter-stock market dynamics.</div>
+        <div class="pub-links">
+          <a href="https://weitianxin.github.io/files/AAAI21_ARStock.pdf" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="https://github.com/weitianxin/FiAI_AR-Stock" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-application">Application</span></div>
+      </li>
+
+      <li class="pub-section-header">Journal</li>
+
+      <li class="pub-item" data-tags="diffusion robustness">
+        <a href="TBD" class="pub-title">DiffKGW: Stealthy and Robust Diffusion Model Watermarking</a>
+        <div class="pub-venue"><em>TMLR</em></div>
+        <div class="pub-authors"><span class="me">Tianxin Wei</span>, Ruizhong Qiu, Yifan Chen, Yunzhe Qi, Jiacheng Lin, Wenxuan Bao, Wenju Xu, Sreyashi Nag, Ruirui Li, Hanqing Lu, Zhengyang Wang, Chen Luo, Hui Liu, Suhang Wang, Jingrui He, Qi He, Xianfeng Tang</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Stealthy robust watermarking for diffusion models via generation time intervention analogous to LLMs.</div>
+        <div class="pub-links">
+          <a href="TBD" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-diffusion">Diffusion</span><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="robustness">
+        <a href="https://arxiv.org/abs/2505.12709" class="pub-title">Pave Your Own Path: Graph Gradual Domain Adaptation on Fused Gromov-Wasserstein Geodesics</a>
+        <div class="pub-venue"><em>TMLR</em></div>
+        <div class="pub-authors">Zhichen Zeng, Ruizhong Qiu, Wenxuan Bao, <span class="me">Tianxin Wei</span>, Xiao Lin, Yuchen Yan, Tarek F. Abdelzaher, Jiawei Han, Hanghang Tong</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Gradual graph domain adaptation along fused Gromov-Wasserstein geodesics.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2505.12709" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-robustness">Robustness</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="survey application">
+        <a href="https://arxiv.org/abs/2507.17731" class="pub-title">Flow Matching Meets Biology and Life Science: A Survey</a>
+        <div class="pub-venue"><em>npj Artificial Intelligence</em></div>
+        <div class="pub-authors">Zihao Li, Zhichen Zeng, Xiao Lin, Feihao Fang, Yanru Qu, Zhe Xu, Zhining Liu, Xuying Ning, <span class="me">Tianxin Wei</span>, Ge Liu, Hanghang Tong, Jingrui He</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Survey connecting flow matching to molecular and biological modeling.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2507.17731" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+          <a href="TBD" class="pub-link"><i class="fab fa-github"></i> Code</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-survey">Survey</span><span class="tag tag-application">Application</span></div>
+      </li>
+
+      <li class="pub-item" data-tags="survey">
+        <a href="http://sites.computer.org/debull/A23june/p80.pdf" class="pub-title">Graph Contrastive Learning: An Odyssey towards Generalizable, Scalable and Principled Representation Learning on Graphs</a>
+        <div class="pub-venue"><em>IEEE Data Engineering Bulletin</em></div>
+        <div class="pub-authors">Yan Han, Yuning You, Wenqing Zheng, Scott Hoang, <span class="me">Tianxin Wei</span>, Majdi Hassan, Tianlong Chen, Ying Ding, Yang Shen, Zhangyang Wang</div>
+        <div class="pub-insight"><strong>Key Insight:</strong> Roadmap from augmentation design to principled graph contrastive learning.</div>
+        <div class="pub-links">
+          <a href="http://sites.computer.org/debull/A23june/p80.pdf" class="pub-link"><i class="fas fa-file-alt"></i> Paper</a>
+        </div>
+        <div class="pub-tags"><span class="tag tag-survey">Survey</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Awards & Service -->
+  <section id="awards" data-aos="fade-up" data-aos-duration="600">
+    <h2 class="section-title">Awards & Service</h2>
+
+    <div class="awards-grid">
+      <div class="award-item" data-aos="fade-up" data-aos-delay="0">SIGIR 2021 Best Paper Honorable Mention</div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="50">ICLR 2026 Oral Presentation (Top 1%)</div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="100">KDD 2025 Outstanding Reviewer</div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="150">Apple Scholar in AI/ML 2024 | University Top-3 Nominee</div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="200">Amazon Internship Fellowship 2024 ($40k)</div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="250">Conference Presentation Award, UIUC 2023</div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="300">NeurIPS Scholar Award (2022, 2023)</div>
+      <div class="award-item" data-aos="fade-up" data-aos-delay="350">ICML 2023 Grant Award</div>
+    </div>
+
+    <div class="service-text" data-aos="fade-up" data-aos-delay="100">
+      <strong>Program Committee / Reviewer:</strong> ICML (2021~2025), NeurIPS (2022~2025), ICLR (2023~2025), KDD (2023~2025), AAAI (2023~2024), CIKM (2021~2023), WSDM 2023, ACL 2023, EMNLP 2023, LOG 2022<br>
+      <strong>Journal Reviewer:</strong> TPAMI, TKDD, TOIS, TKDE, DMKD, Machine Learning, TMLR
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" data-aos="fade-up" data-aos-duration="600">
+    <h2 class="section-title">Gallery</h2>
+    <div class="photo-gallery" id="photoGallery"></div>
+    <div style="text-align:center;margin-top:16px;">
+      <button id="galleryToggleBtn" style="padding:8px 24px;border:1px solid #ccc;border-radius:20px;background:#fff;cursor:pointer;font-size:0.95rem;color:#555;transition:background 0.2s;">Show more photos</button>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</span>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <span class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</span>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+</div>
+
+<!-- Back to top button -->
+<button class="back-to-top" id="backToTop" title="Back to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5w8l886z2zy&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
+  </div>
+</footer>
+
+<!-- AOS: Animate On Scroll -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  // Init AOS
+  AOS.init({
+    once: true,
+    offset: 60,
+    easing: 'ease-out-cubic'
+  });
+
+  // Scroll spy for nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  function updateActiveNav() {
+    const scrollY = window.scrollY + 100;
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      const id = section.getAttribute('id');
+      if (scrollY >= top && scrollY < top + height) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+
+  // Back to top
+  const backToTopBtn = document.getElementById('backToTop');
+
+  function updateBackToTop() {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
+
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Throttled scroll handler
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateActiveNav();
+        updateBackToTop();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // Publication tag filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const pubItems = document.querySelectorAll('.pub-item');
+
+  // Add counts to buttons
+  filterBtns.forEach(btn => {
+    const filter = btn.dataset.filter;
+    let count;
+    if (filter === 'all') {
+      count = pubItems.length;
+    } else {
+      count = document.querySelectorAll(`.pub-item[data-tags*="${filter}"]`).length;
+    }
+    btn.innerHTML += `<span class="filter-count">(${count})</span>`;
+  });
+
+  const sectionHeaders = document.querySelectorAll('.pub-section-header');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      pubItems.forEach(item => {
+        if (filter === 'all' || item.dataset.tags.split(' ').includes(filter)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+      // Show section headers only when "All" is selected
+      sectionHeaders.forEach(h => {
+        if (filter === 'all') {
+          h.classList.remove('hidden');
+        } else {
+          h.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Photo Gallery
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  const gallery = document.getElementById('photoGallery');
+  const GALLERY_BATCH = 5;
+  let galleryShown = GALLERY_BATCH;
+  let shuffled = [];
+
+  function renderGalleryItems() {
+    gallery.innerHTML = '';
+    shuffled.slice(0, galleryShown).forEach((src, idx) => {
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      const thumbSrc = src.replace(/^gallery\//, 'gallery/thumbs/').replace(/\.[^.]+$/, '.jpg');
+      item.innerHTML = `<img src="${thumbSrc}" alt="Photo ${idx+1}" loading="lazy"><div class="overlay">&#128269;</div>`;
+      item.addEventListener('click', () => openLightbox(idx));
+      gallery.appendChild(item);
+    });
+    const btn = document.getElementById('galleryToggleBtn');
+    if (galleryShown >= shuffled.length) {
+      btn.style.display = 'none';
+    } else {
+      btn.style.display = '';
+      btn.textContent = `Load more (${shuffled.length - galleryShown} remaining)`;
+    }
+  }
+
+  fetch('gallery/manifest.json')
+    .then(r => r.json())
+    .then(files => {
+      shuffled = shuffle(files.map(f => 'gallery/' + f));
+      renderGalleryItems();
+    });
+
+  document.getElementById('galleryToggleBtn').addEventListener('click', () => {
+    galleryShown = Math.min(galleryShown + GALLERY_BATCH, shuffled.length);
+    renderGalleryItems();
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbCounter = document.getElementById('lightboxCounter');
+  let currentIdx = 0;
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    lbImg.src = shuffled[idx];
+    lbCounter.textContent = (idx + 1) + " / " + shuffled.length;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function navigate(dir) {
+    currentIdx = (currentIdx + dir + shuffled.length) % shuffled.length;
+    lbImg.src = shuffled[currentIdx];
+    lbCounter.textContent = (currentIdx + 1) + " / " + shuffled.length;
+  }
+
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', () => navigate(-1));
+  document.getElementById('lightboxNext').addEventListener('click', () => navigate(1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+</script>
+
+</body>
+</html>
