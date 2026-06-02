@@ -1310,21 +1310,31 @@
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
 
+  function setActiveNav(id) {
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+    });
+  }
+
   function updateActiveNav() {
-    const scrollY = window.scrollY + 100;
+    const scrollPos = window.scrollY + 120;
+    let currentId = sections.length ? sections[0].getAttribute('id') : null;
+
     sections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-      if (scrollY >= top && scrollY < top + height) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + id) {
-            link.classList.add('active');
-          }
-        });
+      if (scrollPos >= section.offsetTop) {
+        currentId = section.getAttribute('id');
       }
     });
+
+    // When scrolled to (near) the bottom, the last short section can never
+    // reach the threshold above, so force-activate it.
+    const scrolledToBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (scrolledToBottom && sections.length) {
+      currentId = sections[sections.length - 1].getAttribute('id');
+    }
+
+    if (currentId) setActiveNav(currentId);
   }
 
   // Back to top
@@ -1354,6 +1364,9 @@
       ticking = true;
     }
   });
+
+  // Set initial nav state on load
+  updateActiveNav();
 
   // Publication tag filter
   const filterBtns = document.querySelectorAll('.filter-btn');
