@@ -21,8 +21,7 @@ The homepage includes:
 ├── CNAME                   # Custom domain for GitHub Pages
 ├── .nojekyll               # Disable Jekyll processing on GitHub Pages
 ├── files/                  # Resume and downloadable documents
-├── images/                 # Profile images, logos, and visual assets
-└── generate_thumbnails.py  # Utility script for image thumbnail generation
+└── images/                 # Profile images, logos, and visual assets
 ```
 
 ## Local Preview
