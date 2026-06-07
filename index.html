@@ -196,7 +196,7 @@
 
     .hero-links a:hover {
       background: var(--accent);
-      color: #fff;
+      color: #753434;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(44, 82, 130, 0.25);
     }
@@ -1433,6 +1433,12 @@
       pubLoadMoreWrap.classList.remove('hidden');
     } else {
       pubLoadMoreWrap.classList.add('hidden');
+    }
+    // Filtering changes the page height, which invalidates AOS's cached
+    // trigger offsets. Recalculate so sections below (e.g. Awards) still
+    // animate into view instead of staying hidden.
+    if (window.AOS && typeof AOS.refresh === 'function') {
+      AOS.refresh();
     }
   }
 
